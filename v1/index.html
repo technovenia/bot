@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Odd/Even Bot</title>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-1XZE0MBVFY"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-1XZE0MBVFY');
+        </script>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <link href='https://fonts.googleapis.com/css?family=Roboto Mono' rel='stylesheet'>
+        <link rel="stylesheet" type="text/css" href="css/main.css" />
+    </head>
+
+    <body class="dark-mode">
+
+                <div class="card dark-mode">
+                    <div class="card-body">
+                        <center>
+                            <div id="error-notification" class="alert alert-danger" role="alert"></div>
+                        </center>
+
+
+                        <div class="card bg-dark">
+                            <div class="modal-body row">
+                                <div class="col-md-2">
+                                    <label for="input-token">Account Token:</label>
+                                    <input id="input-token" type="text" class="form-control" value="" placeholder="Account Token">
+                                </div>
+                                <div class="col-md-3">
+                                    <label for="input-token">Currency Symbol:</label>
+                                    <select class="form-control dark-mode" id="curency-input" value="RDBEAR">
+                                        <option value="WLDAUD">AUD Index</option>
+                                        <option value="frxAUDCAD">AUD/CAD</option>
+                                        <option value="frxAUDCHF">AUD/CHF</option>
+                                        <option value="frxAUDJPY">AUD/JPY</option>
+                                        <option value="frxAUDNZD">AUD/NZD</option>
+                                        <option value="frxAUDUSD">AUD/USD</option>
+                                        <option value="OTC_AS51">Australian Index</option>
+                                        <option value="RDBEAR">Bear Market Index</option>
+                                        <option value="BOOM500">Boom 500 Index</option>
+                                        <option value="BOOM1000">Boom 1000 Index</option>
+                                        <option value="RDBULL">Bull Market Index</option>
+                                        <option value="CRASH500">Crash 500 Index</option>
+                                        <option value="CRASH1000">Crash 1000 Index</option>
+                                        <option value="OTC_AEX">Dutch Index</option>
+                                        <option value="WLDEUR">EUR Index</option>
+                                        <option value="frxEURAUD">EUR/AUD</option>
+                                        <option value="frxEURCAD">EUR/CAD</option>
+                                        <option value="frxEURCHF">EUR/CHF</option>
+                                        <option value="frxEURGBP">EUR/GBP</option>
+                                        <option value="frxEURJPY">EUR/JPY</option>
+                                        <option value="frxEURNZD">EUR/NZD</option>
+                                        <option value="frxEURUSD">EUR/USD</option>
+                                        <option value="OTC_SX5E">Euro 50 Index</option>
+                                        <option value="OTC_FCHI">French Index</option>
+                                        <option value="WLDGBP">GBP Index</option>
+                                        <option value="frxGBPAUD">GBP/AUD</option>
+                                        <option value="frxGBPCAD">GBP/CAD</option>
+                                        <option value="frxGBPCHF">GBP/CHF</option>
+                                        <option value="frxGBPJPY">GBP/JPY</option>
+                                        <option value="frxGBPNOK">GBP/NOK</option>
+                                        <option value="frxGBPNZD">GBP/NZD</option>
+                                        <option value="frxGBPUSD">GBP/USD</option>
+                                        <option value="OTC_GDAXI">German Index</option>
+                                        <option value="frxXAUUSD">Gold/USD</option>
+                                        <option value="OTC_HSI">Hong Kong Index</option>
+                                        <option value="OTC_N225">Japanese Index</option>
+                                        <option value="frxNZDJPY">NZD/JPY</option>
+                                        <option value="frxNZDUSD">NZD/USD</option>
+                                        <option value="frxBROUSD">Oil/USD</option>
+                                        <option value="frxXPDUSD">Palladium/USD</option>
+                                        <option value="frxXPTUSD">Platinum/USD</option>
+                                        <option value="frxXAGUSD">Silver/USD</option>
+                                        <option value="stpRNG">Step Index</option>
+                                        <option value="OTC_SSMI">Swiss Index</option>
+                                        <option value="OTC_FTSE">UK Index</option>
+                                        <option value="OTC_SPC">US Index</option>
+                                        <option value="OTC_NDX">US Tech Index</option>
+                                        <option value="WLDUSD">USD Index</option>
+                                        <option value="frxUSDCAD">USD/CAD</option>
+                                        <option value="frxUSDCHF">USD/CHF</option>
+                                        <option value="frxUSDJPY">USD/JPY</option>
+                                        <option value="frxUSDMXN">USD/MXN</option>
+                                        <option value="frxUSDNOK">USD/NOK</option>
+                                        <option value="frxUSDPLN">USD/PLN</option>
+                                        <option value="frxUSDSEK">USD/SEK</option>
+                                        <option value="1HZ10V">Volatility 10 (1s) Index</option>
+                                        <option value="R_10">Volatility 10 Index</option>
+                                        <option value="1HZ25V">Volatility 25 (1s) Index</option>
+                                        <option value="R_25">Volatility 25 Index</option>
+                                        <option value="1HZ50V">Volatility 50 (1s) Index</option>
+                                        <option value="R_50">Volatility 50 Index</option>
+                                        <option value="1HZ75V">Volatility 75 (1s) Index</option>
+                                        <option value="R_75">Volatility 75 Index</option>
+                                        <option value="1HZ100V">Volatility 100 (1s) Index</option>
+                                        <option value="R_100">Volatility 100 Index</option>
+                                        <option value="OTC_DJI">Wall Street Index</option>
+                                    </select>
+                                </div>
+
+                                <div class="col-md-2">
+                                    <label for="starting-amount">Starting Amount:</label>
+                                    <input id="starting-amount" class="form-control" step=".01" type="number" value="0.35" >
+                                </div>
+                                <div class="col-md-2">
+                                    <label for="net-profit">Net Profit (%):</label>
+                                    <input id="net-profit" class="form-control" step=".01" type="number" value="0.88" >
+                                </div>
+                                <div class="col-md-1">
+                                    <label for="trigger-count">Trigger At:</label>
+                                    <input id="trigger-count" class="form-control" type="number" value="3" >
+                                </div>
+                                <div class="col-md-1">
+                                    <label for="martingale-limit">MG Limit:</label>
+                                    <input id="martingale-limit" class="form-control" type="number" value="3" >
+                                </div>
+                                <div class="col-md-1">
+                                    <label for="martingale-profit">MG Profit:</label>
+                                    <input id="martingale-profit" class="form-control" step=".01" type="number" value="0.35" >
+                                </div>
+                                <!-- <div class="col-md-1">
+                                    <label for="apply-config" class="transparent">.</label>
+                                    <button id="apply-config" type="button" onclick="updateConfig()" class="btn btn-small btn-primary btn-block">Apply</button>
+                                </div> -->
+                            </div>
+
+                        </div>
+
+
+
+                        <div class="modal-body row">
+                            <!-- Left side -->
+
+                            <div class="col-md-3">
+                                <div class="card dark-mode">
+                                    <!-- <div class="card-body"> -->
+                                        <table class="table table-striped dark-mode">
+                                            <tbody>
+                                              <tr>
+                                                <td class="info-label">Email</td>
+                                                <td id="info-email" class="info-value">--</td>
+                                              </tr>
+                                              <tr>
+                                                <td class="info-label">Fullname</td>
+                                                <td id="info-fullname" class="info-value">--</td>
+                                              </tr>
+                                              <tr>
+                                                <td class="info-label">Country</td>
+                                                <td id="info-country" class="info-value">--</td>
+                                              </tr>
+                                              <tr>
+                                                <td class="info-label">Currency</td>
+                                                <td id="info-currency" class="info-value">--</td>
+                                              </tr>
+                                              <tr>
+                                                <td class="info-label">Starting Balance</td>
+                                                <td id="info-starting-balance" class="info-value">--</td>
+                                              </tr>
+                                              <tr>
+                                                <td class="info-label">Current Balance</td>
+                                                <td id="info-current-balance" class="info-value">--</td>
+                                              </tr>
+                                              <tr>
+                                                <td class="info-label">Martingale Risk</td>
+                                                <td id="info-martingale-risk" class="info-value">--</td>
+                                              </tr>
+                                              <tr>
+                                                <td></td>
+                                                <td></td>
+                                              </tr>
+                                            </tbody>
+                                          </table>
+                                    <!-- </div> -->
+                                </div>
+                            </div>
+
+                            <!-- Right side -->
+                            <div class="col-md-9">
+
+                                <!-- Control Pane -->
+                                <div class="modal-body row">
+                                    <div class="col-md-10">
+                                        <!-- Status display -->
+                                        <div id="status-display-card" class="card bg-dark text-white">
+                                            <div class="card-body mono-font"><h3 id="status-display">--</h3></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <!-- Start / Stop button -->
+                                        <button id="toggle-bot" type="button" onclick="toggleBot()" class="btn btn-lg btn-success btn-block">Start Bot</button>
+                                    </div>
+                                </div>
+
+                                <div class="modal-body row">
+                                    <div class="col-md-5">
+                                        <!-- Tick display -->
+                                        <div class="card bg-dark text-white">
+                                            <center><div class="card-body mono-font green-text"><h3 id="tick-display">--</h3></div></center>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <!-- Odd/Even count display -->
+                                        <div id="profit-display-card" class="card text-white bg-dark">
+                                            <center><div class="card-body mono-font green-text"><h3 id="profit-display">--</h3></div></center>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <!-- Odd/Even Type display -->
+                                        <div id="type-display-card" class="card text-white bg-dark">
+                                            <center><div class="card-body mono-font green-text"><h3 id="type-display">--</h3></div></center>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <!-- Odd/Even count display -->
+                                        <div id="count-display-card" class="card text-white bg-dark">
+                                            <center><div class="card-body mono-font green-text"><h3 id="count-display">--</h3></div></center>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <br/>
+
+                                <!-- Monitoring controlls -->
+                                <center>
+                                </center>
+                                <br/><br/>
+
+                                <!-- Enable Trading -->
+                                <label class="checkbox-inline">
+                                    <input id="enable-trading-input" type="checkbox" value="true"> Enable Trading  
+                                </label>
+
+
+                                <label class="checkbox-inline">
+                                    <input id="enable-log-values-input" type="checkbox" value="true"> Log Values
+                                </label>
+
+
+                                <!-- Log -->
+                                <textarea id="log-area" class="form-control mono-font dark-mode" rows="15" readonly></textarea><br/>
+                                <button type="button" onclick="clearLog();" class="btn btn-secondary">Clear Log</button>
+        
+                            </div>
+                        </div>
+                         <br/>
+
+                    </div>
+                </div>
+
+
+                <div class="navbar">
+                    <a href="http://www.technovenia.com" target="_blank">Technovenia</a>
+                    <a href="#news"></a>
+                    <a href="http://www.technovenia.com" target="_blank">Contact us: technovenia@gmail.com</a>
+                </div>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-database.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-analytics.js"></script>
+        <script src="js/tvb.js"></script>
+        
+    </body>
+</html>
